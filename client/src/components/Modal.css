@@ -1,5 +1,4 @@
 .modalBackground {
-<<<<<<< HEAD
   position: fixed;
   top: 0;
   left: 0;
@@ -30,35 +29,6 @@
 .title {
   font-size: 1.2rem;
   margin-bottom: 15px;
-=======
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.2);
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modalContainer {
-  width: 500px;
-  height: 200px;
-  border-radius: 12px;
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  display: flex;
-  flex-direction: column;
-  padding: 25px;
-}
-
-.modalContainer {
-  display: inline-block;
-  text-align: center;
-}
-.title {
-  display: inline-block;
-  text-align: center;
->>>>>>> 80a7fc1ef9f6b400edecba1443d8b69f970b772c
 }
 
 .titleCloseBtn {
@@ -69,7 +39,6 @@
 .titleCloseBtn button {
   background-color: transparent;
   border: none;
-<<<<<<< HEAD
   font-size: 1.2rem;
   cursor: pointer;
 }
@@ -102,32 +71,6 @@ input[type="text"]:focus {
 .footer button {
   width: 100px;
   height: 35px;
-=======
-  font-size: 1px;
-  cursor: pointer;
-}
-
-.modalContainer .body {
-  flex: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.7rem;
-  text-align: center;
-}
-
-.modalContainer .footer {
-  flex: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modalContainer .footer button {
-  width: 100px;
-  height: 35px;
-  margin: 10px;
->>>>>>> 80a7fc1ef9f6b400edecba1443d8b69f970b772c
   border: none;
   background-color: cornflowerblue;
   color: white;
@@ -139,7 +82,6 @@ input[type="text"]:focus {
 #cancelBtn {
   background-color: crimson;
 }
-<<<<<<< HEAD
 
 @media (max-width: 600px) {
   .modalContainer {
@@ -147,16 +89,4 @@ input[type="text"]:focus {
     max-height: 85vh;
     padding: 15px;
   }
-=======
-.address {
-  display: block;
-  margin: auto;
-  height: 30px;
-  width: 330px;
-  text-align: center;
-}
-
-input[type="text"]:focus {
-  background-color: lightblue;
->>>>>>> 80a7fc1ef9f6b400edecba1443d8b69f970b772c
 }

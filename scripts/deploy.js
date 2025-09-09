@@ -10,11 +10,7 @@ async function main() {
   console.log("Library deployed to:",address);
 }
 
-<<<<<<< HEAD
 main().catch((error) =>  {
-=======
-main().catch((error) => {
->>>>>>> 80a7fc1ef9f6b400edecba1443d8b69f970b772c
   console.error(error);
   process.exitCode = 1;
 });

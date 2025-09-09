@@ -21,7 +21,11 @@ contract Upload {
       if(previousData[msg.sender][user]){
          for(uint i=0;i<accessList[msg.sender].length;i++){
              if(accessList[msg.sender][i].user==user){
+<<<<<<< HEAD
                   accessList[msg.sender][i].access=true;
+=======
+                  accessList[msg.sender][i].access=true; 
+>>>>>>> 80a7fc1ef9f6b400edecba1443d8b69f970b772c
              }
          }
       }else{
@@ -31,7 +35,10 @@ contract Upload {
     
   }
   function disallow(address user) public{
+<<<<<<< HEAD
       if (!previousData[msg.sender][user]) return;
+=======
+>>>>>>> 80a7fc1ef9f6b400edecba1443d8b69f970b772c
       ownership[msg.sender][user]=false;
       for(uint i=0;i<accessList[msg.sender].length;i++){
           if(accessList[msg.sender][i].user==user){ 

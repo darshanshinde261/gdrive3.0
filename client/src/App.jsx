@@ -1,5 +1,9 @@
 import Upload from "./artifacts/contracts/Upload.sol/Upload.json";
+<<<<<<< HEAD
 import { useState } from "react";
+=======
+import { useState, useEffect } from "react";
+>>>>>>> 80a7fc1ef9f6b400edecba1443d8b69f970b772c
 import { ethers } from "ethers";
 import FileUpload from "./components/FileUpload";
 import Display from "./components/Display";
@@ -9,6 +13,7 @@ import "./App.css";
 function App() {
   const [account, setAccount] = useState("");
   const [contract, setContract] = useState(null);
+<<<<<<< HEAD
   const [modalOpen, setModalOpen] = useState(false);
 
   const connectWallet = async () => {
@@ -55,12 +60,54 @@ function App() {
     setContract(contract);
   };
 
+=======
+  const [provider, setProvider] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [connect,setConnect] = useState(false);
+
+  useEffect(() => {
+    let provider;
+    if (window.ethereum) {
+        provider = new ethers.BrowserProvider(window.ethereum);
+    }
+
+    const loadProvider = async () => {
+      if (provider) {
+        window.ethereum.on("chainChanged", () => {
+          window.location.reload();
+        });
+
+        window.ethereum.on("accountsChanged", () => {
+          window.location.reload();
+        });
+        await provider.send("eth_requestAccounts", []);
+        const signer = await provider.getSigner();
+        const address = await signer.getAddress();
+        setAccount(address);
+        let contractAddress = "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0";
+
+        const contract = new ethers.Contract(
+          contractAddress,
+          Upload.abi,
+          signer
+        );
+        //console.log(contract);
+        setContract(contract);
+        setProvider(provider);
+      } else {
+        console.error("Metamask is not installed");
+      }
+    };
+    provider && loadProvider();
+  }, [connect]);
+>>>>>>> 80a7fc1ef9f6b400edecba1443d8b69f970b772c
   return (
     <>
       {!modalOpen && (
         <button className="share" onClick={() => setModalOpen(true)}>
           Share
         </button>
+<<<<<<< HEAD
       )}
       {modalOpen && <Modal setModalOpen={setModalOpen} contract={contract} />}
       <div className="App">
@@ -73,6 +120,29 @@ function App() {
         </p>
         <FileUpload account={account} contract={contract} />
         {contract && <Display contract={contract} account={account} />}
+=======
+        
+      )}
+      {modalOpen && (
+        <Modal setModalOpen={setModalOpen} contract={contract}></Modal>
+      )}
+
+      <div className="App">
+        <h1 style={{ color: "white" }}>Gdrive 3.0</h1>
+        
+        <button className="share" onClick={() => !connect && setConnect(true)}>
+          Connect
+        </button>
+        <p style={{ color: "white" }}>
+          Account : {account ? account : "Not connected"}
+        </p>
+        <FileUpload
+          account={account}
+          provider={provider}
+          contract={contract}
+        ></FileUpload>
+        {contract && <Display contract={contract} account={account}></Display>}
+>>>>>>> 80a7fc1ef9f6b400edecba1443d8b69f970b772c
       </div>
     </>
   );
